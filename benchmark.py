@@ -55,7 +55,14 @@ def plot():
     plt.xlabel("goroutines")
     plt.ylabel("time / ms")
     plt.savefig('./benchmark.png')
-    plt.show()
+    # plt.show()
+
+    plt.bar(goroutines, means, yerr=stddev, width=1)
+    plt.xlabel("goroutines")
+    plt.ylabel("time / ms")
+    plt.xlim([0, 100])
+    plt.savefig('./benchmark_zoom.png')
+    # plt.show()
 
 
 # run_benchmark()
