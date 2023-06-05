@@ -44,58 +44,6 @@ func findPrimes(low, high int) <-chan int {
 	return primes
 }
 
-// func combine1(chan1, chan2 chan int) chan int {
-// 	c := make(chan int)
-// 	go func() {
-// 		ok1, ok2 := true, true
-// 		for {
-// 			var i int
-// 			select {
-// 			case i, ok1 = <-chan1:
-// 				if ok1 {
-// 					c <- i
-// 				}
-// 				if !ok1 && !ok2 {
-// 					close(c)
-// 					return
-// 				}
-// 			case i, ok2 = <-chan2:
-// 				if ok2 {
-// 					c <- i
-// 				}
-// 				if !ok1 && !ok2 {
-// 					close(c)
-// 					return
-// 				}
-// 			}
-// 		}
-// 	}()
-// 	return c
-// }
-
-// func merge(channels ...chan int) chan int {
-// 	results := make(chan int)
-
-// 	go func() {
-// 		wg := sync.WaitGroup{}
-
-// 		for _, channel := range channels {
-// 			wg.Add(1)
-// 			go func(ch chan int) {
-// 				defer wg.Done()
-// 				for result := range ch {
-// 					results <- result
-// 				}
-// 			}(channel)
-// 		}
-
-// 		wg.Wait()
-// 		close(results)
-// 	}()
-
-// 	return results
-// }
-
 // merges all of the channels into a single combined result channel.
 func merge(channels ...<-chan int) <-chan int {
 	results := make(chan int)
@@ -160,7 +108,6 @@ func main() {
 
 	var routines []<-chan int
 	for _, part := range partitions {
-		fmt.Println(part.low, part.high)
 		routines = append(routines, findPrimes(part.low, part.high))
 	}
 
