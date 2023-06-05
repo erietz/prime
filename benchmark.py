@@ -55,6 +55,7 @@ def plot():
     plt.xlabel("goroutines")
     plt.ylabel("time / ms")
     plt.savefig('./benchmark.png')
+    plt.close()
     # plt.show()
 
     plt.bar(goroutines, means, yerr=stddev, width=1)
