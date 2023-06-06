@@ -63,6 +63,7 @@ def plot():
     plt.ylabel("time / s")
     plt.xlim([0, 100])
     plt.savefig('./media/benchmark_zoom.png')
+    plt.close()
     # plt.show()
 
     plt.errorbar(goroutines, means, yerr=stddev, fmt='o')
@@ -70,6 +71,7 @@ def plot():
     plt.ylabel("time / s")
     plt.xlim([0, 100])
     plt.savefig('./media/benchmark_zoom_errorbar.png')
+    plt.close()
     # plt.show()
 
 

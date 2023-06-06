@@ -1,5 +1,5 @@
 
-Calculating primes numbers up to 100000
+Calculating prime numbers up to 100000
 
 ![Benchmark](./media/benchmark.png)
 
