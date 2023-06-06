@@ -54,7 +54,7 @@ def plot():
     plt.bar(goroutines, means, yerr=stddev, width=200)
     plt.xlabel("goroutines")
     plt.ylabel("time / s")
-    plt.savefig('./benchmark.png')
+    plt.savefig('./media/benchmark.png')
     plt.close()
     # plt.show()
 
@@ -62,7 +62,14 @@ def plot():
     plt.xlabel("goroutines")
     plt.ylabel("time / s")
     plt.xlim([0, 100])
-    plt.savefig('./benchmark_zoom.png')
+    plt.savefig('./media/benchmark_zoom.png')
+    # plt.show()
+
+    plt.errorbar(goroutines, means, yerr=stddev, fmt='o')
+    plt.xlabel("goroutines")
+    plt.ylabel("time / s")
+    plt.xlim([0, 100])
+    plt.savefig('./media/benchmark_zoom_errorbar.png')
     # plt.show()
 
 
