@@ -110,13 +110,11 @@ func main() {
 		routines = append(routines, findPrimes(part.low, part.high))
 	}
 
-	results := merge(routines...)
-
-	sortedResults := []int{}
-	for result := range results {
-		sortedResults = append(sortedResults, result)
+	primes := []int{}
+	for prime := range merge(routines...) {
+		primes = append(primes, prime)
 	}
 
-	sort.Ints(sortedResults)
-	fmt.Println(sortedResults)
+	sort.Ints(primes)
+	fmt.Println(primes)
 }
